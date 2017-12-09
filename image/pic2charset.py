@@ -15,7 +15,7 @@ class Pic2CharProcessor(object):
     def __init__(self):
         pass
 
-    def ProcessPictureToCharFile(self, filepath,scale):
+    def ProcessPictureToCharFile(self, filepath, scale):
         img = Image.open(filepath)
         (width, height) = img.size
         img = img.convert("L")
@@ -40,4 +40,4 @@ if __name__ == "__main__":
     processor = Pic2CharProcessor()
     sourcepath = sys.argv[1]
     scale = int(sys.argv[2])
-    processor.ProcessPictureToCharFile(sourcepath,scale)
+    processor.ProcessPictureToCharFile(sourcepath, scale)
