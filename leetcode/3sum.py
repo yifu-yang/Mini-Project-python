@@ -6,7 +6,7 @@ class Solution(object):
         """
         result = list()
         nums.sort()
-        print nums
+        print (nums)
         for x in range(len(nums)):
             #print nums[x],x
             if x>0 and nums[x]==nums[x-1]:
