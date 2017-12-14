@@ -4,6 +4,7 @@
 
 import sys
 from PIL import Image
+import gifmaker
 
 charset = list(
     "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,\"^`'. 123456789")
@@ -21,11 +22,19 @@ class Pic2CharProcessor(object):
         img = img.convert("L")
         img.thumbnail((width // scale, height // scale))
         matrix = self.__convert(img, width // scale, height // scale)
-        with open('test.txt', 'w') as f:
+        with open(filepath+'.txt', 'w') as f:
             for index in range(len(matrix)):
                 f.write(matrix[index] + "\n")
 
     def ProcessGifPictureToCharFile(self,filepath,scale):
+        im= Image.open(filepath)
+        # TODO a function can read a frame then out a .txt file
+        try:
+            while 1:
+                im.seek(im.tell()+1)
+                # do something to im
+        except EOFError:
+            pass # end of sequence
         pass
 
 
