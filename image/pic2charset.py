@@ -18,10 +18,7 @@ class Pic2CharProcessor(object):
 
     def ProcessPictureToCharFile(self, filepath, scale):
         img = Image.open(filepath)
-        (width, height) = img.size
-        img = img.convert("L")
-        img.thumbnail((width // scale, height // scale))
-        matrix = self.__convert(img, width // scale, height // scale)
+        matrix = self.__convert(img)
         with open(filepath+'.txt', 'w') as f:
             for index in range(len(matrix)):
                 f.write(matrix[index] + "\n")
@@ -37,8 +34,13 @@ class Pic2CharProcessor(object):
             pass # end of sequence
         pass
 
+    def __scaleFrame(self,im):
+        
 
-    def __convert(self, img, width, height):
+    def __convert(self, img):
+        (width, height) = img.size
+        img = img.convert("L")
+        img.thumbnail((width // scale, height // scale))
         matrix = []
         for y in range(height):
             tmpstr = ""
