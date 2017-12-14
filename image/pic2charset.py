@@ -25,6 +25,10 @@ class Pic2CharProcessor(object):
             for index in range(len(matrix)):
                 f.write(matrix[index] + "\n")
 
+    def ProcessGifPictureToCharFile(self,filepath,scale):
+        pass
+
+
     def __convert(self, img, width, height):
         matrix = []
         for y in range(height):
